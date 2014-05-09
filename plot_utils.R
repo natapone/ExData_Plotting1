@@ -23,5 +23,11 @@ read_data <- function(directory="data", file_name="household_power_consumption.t
     data$Sub_metering_2 <- as.numeric(gsub( pattern="?", replacement="",x=data$Sub_metering_2 ))
     data$Sub_metering_3 <- as.numeric(gsub( pattern="?", replacement="",x=data$Sub_metering_3 ))
     
-    data[complete.cases(data),]
+    data <- data[complete.cases(data),]
+    
+    # Format time
+    data$Time <-  strptime( paste(data$Date, data$Time, sep=" "), "%Y-%m-%d %H:%M:%S" )
+    
+    data
+    
 }
