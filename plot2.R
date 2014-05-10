@@ -6,7 +6,7 @@ plot2 <- function () {
     plot(
         y=data$Global_active_power, x=data$Time, type="l",
         ylab="Global Active Power (kilowatts)",
-        xlab="Time"
+        xlab=""
     )
     dev.off()
 }
