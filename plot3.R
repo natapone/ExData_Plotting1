@@ -1,12 +1,13 @@
 source("plot_utils.R")
 
-plot3 <- function (data = NULL) {
+plot3 <- function (data = NULL, save = T) {
     if (is.null(data)) {
         data <- read_data()
     }
     
-    png(filename="plot3.png", width=480, height=480, bg="transparent" )
-    
+    if (save) {
+        png(filename="plot3.png", width=480, height=480, bg="transparent" )
+    }
     plot(y=data$Sub_metering_1, 
          x=data$Time,
          type="l", 
@@ -26,5 +27,7 @@ plot3 <- function (data = NULL) {
         horiz=F
    )
    
-   dev.off()
+   if (save) {
+       dev.off()
+   }
 }
