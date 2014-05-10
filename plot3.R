@@ -19,15 +19,15 @@ plot3 <- function (data = NULL, save = T) {
     lines(y=data$Sub_metering_2, x=data$Time, col="red")
     lines(y=data$Sub_metering_3, x=data$Time, col="blue")
     
-    legend("topright", inset=0, 
-        c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), 
-        lty=c(1,1,1),
-        lwd=c(2.5,2.5,2.5),
-        col=c("black","blue","red"),
-        horiz=F
-   )
-   
-   if (save) {
-       dev.off()
-   }
+    if (save) {
+        legend("topright", inset=0, 
+               c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), 
+               lty=c(1,1,1),
+               lwd=c(2.5,2.5,2.5),
+               col=c("black","blue","red"),
+               horiz=F
+        )
+        
+        dev.off()
+    }
 }
